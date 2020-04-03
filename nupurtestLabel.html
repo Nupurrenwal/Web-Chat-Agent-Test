@@ -60,8 +60,8 @@ var startHour2 = 10;
 var endHour2 = 21;
 
 var currentTime = new Date();
-var currentHour = currentTime.getUTCHours();
-var currentDay = currentTime.getUTCDay();
+var currentHour = currentTime.getHours();
+var currentDay = currentTime.getDay();
   if ((workingDays1.indexOf(currentDay) != -1 && (currentHour >= startHour1 && currentHour < endHour1)) || (workingDays2.indexOf(currentDay) != -1 && (currentHour >= startHour2 && currentHour < endHour2)))       
         
 		embedded_svc.init(
