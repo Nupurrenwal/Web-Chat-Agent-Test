@@ -17,11 +17,14 @@
 
 <h2>JavaScript in Body</h2>
 
-<p id="demo">Hello World</p>
+<p id="demo">Hello World 1</p>
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
     
 <script type='text/javascript'>
+    
+   
+    
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
@@ -40,10 +43,24 @@
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-       
+
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
+		// week days and times definitions
+var workingDays1 = [1,2,3,4,5];
+var startHour1 = 7;
+var endHour1 =  23;
 
+// weekend days and times definitions
+var workingDays2 = [6,7];
+var startHour2 = 10;
+var endHour2 = 21;
+
+var currentTime = new Date();
+var currentHour = currentTime.getHours();
+var currentDay = currentTime.getDay();
+  if ((workingDays1.indexOf(currentDay) != -1 && (currentHour >= startHour1 && currentHour < endHour1)) || (workingDays2.indexOf(currentDay) != -1 && (currentHour >= startHour2 && currentHour < endHour2)))       
+        
 		embedded_svc.init(
 			'https://yourtown--dev.my.salesforce.com',
 			'https://dev-support-yourtown.cs117.force.com/support',
@@ -71,6 +88,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>
+</script>  
+
 </body>
 </html> 
